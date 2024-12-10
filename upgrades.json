@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Wooden Pickaxe",
+    "cost": 10,
+    "clicksPerSecond": 0.1
+  },
+  {
+    "name": "Stone Pickaxe",
+    "cost": 100,
+    "clicksPerSecond": 1
+  },
+  {
+    "name": "Iron Pickaxe",
+    "cost": 1100,
+    "clicksPerSecond": 8
+  },
+  {
+    "name": "Gold Pickaxe",
+    "cost": 12000,
+    "clicksPerSecond": 47
+  },
+  {
+    "name": "Diamond Pickaxe",
+    "cost": 130000,
+    "clicksPerSecond": 260
+  },
+  {
+    "name": "Netherite Pickaxe",
+    "cost": 1400000,
+    "clicksPerSecond": 1400
+  }
+]

@@ -1,0 +1,93 @@
+html {
+	height: 100% !important;
+	padding: 0;
+	margin: 0;
+	font: 400 3vh "VT323";
+}
+
+body, html{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	display: flex;
+  flex-direction: column;
+	font: 400 3vh "VT323";
+}
+
+.header{
+	margin: 0;
+	padding: 1dvh;
+	height: 3vh;
+	background-color: blue;
+	flex-shrink: 0;
+}
+
+.main{
+	background-color: green;
+	flex-grow: 1;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.main-links{
+	background: red;
+	flex: 2;
+  display: flex;
+	flex-direction: column;
+	align-items: top;
+	justify-content: space-around;
+}
+
+.main-links p {
+	align-self: center;
+	flex: 1;
+	display: inline-block;
+	padding: 2vh;
+	text-align: center;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 1.5vh;
+	height: auto;
+	width: 75%;
+	margin: 5vh 0 0 0;
+}
+
+.main-links p:last-of-type {
+	background-color: rgba(0, 0, 0, 0.6) !important;
+	margin: 0;
+	width: 65%;
+}
+
+.main-links img {
+	align-self: center;
+  width: calc(100% - 10vh) !important;
+	object-fit:scale-down !important;
+	object-position: 0 -1vh;
+	flex: 100;
+	/* background-color: aqua; */
+	margin-top: 5vh;
+}
+
+.main-mitte{
+	flex: 3;
+  background: yellow;
+  display: flex;
+  height: 100vh;
+}
+
+.main-rechts{
+	background: orange;
+  flex: 2;
+  display: flex;
+	flex-direction: column;
+}
+
+.main-rechts #upgrades-container button {
+	height: 4vh;
+	width: 92%;
+	text-align: left;
+	vertical-align: center !important;
+	font: 400 2vh "VT323";
+	margin: 0 4% 1vh 4%;
+};

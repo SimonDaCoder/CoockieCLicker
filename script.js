@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function PermaUpdater() {
   document.getElementById("MinecraftClickerScore").innerHTML = Math.floor(Blockcount) + " Blocks";
-  document.getElementById("MinecraftClicksPerSecond").innerHTML = PerSec + " Blocks / Second";
+  document.getElementById("MinecraftClicksPerSecond").innerHTML = Math.floor(PerSec * 10)/10 + " Blocks / Second";
   setTimeout(PermaUpdater, 250)
 }
 function ClickOnBlock() {
@@ -48,7 +48,7 @@ async function loadUpgrades() {
       SecAdd.push(upgrade.clicksPerSecond);
 
       const button = document.createElement('button');
-      button.innerHTML = `${upgrade.name}: ${upgrade.clicksPerSecond} Clicks/sec ${upgrade.cost}`;
+      button.innerHTML = `<p> ${upgrade.name}: ${upgrade.clicksPerSecond} Clicks/sec</p><p> ${upgrade.cost}</p>`;
       button.setAttribute('onclick', `buyUpgrade(${index})`);
       container.appendChild(button);
     });

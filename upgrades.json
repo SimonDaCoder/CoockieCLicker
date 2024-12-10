@@ -27,6 +27,6 @@
   {
     "name": "Netherite Pickaxe",
     "cost": 1400000,
-    "clicksPerSecond": 1400
+    "clicksPerSecond": 14000000000
   }
 ]

@@ -37,6 +37,10 @@ body, html{
 	flex-direction: column;
 	align-items: top;
 	justify-content: space-around;
+	background-image: url('erde.png');
+	background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
 }
 
 .main-links p {
@@ -74,11 +78,19 @@ body, html{
   background: yellow;
   display: flex;
   height: 100vh;
+	background-image: url('erde.png');
+	background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
 }
 
 .main-rechts{
-	background: orange;
+	background-image: url('erde.png');
+	background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
   flex: 2;
+	box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
 .main-rechts #upgrades-container button {
@@ -92,11 +104,13 @@ body, html{
 	border: none;
 	border-radius: 1vh;
 	cursor: pointer;
-	transition: color 150ms, ;
+	transition: color 150ms, box-shadow 150ms, border 150ms; 
+	box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.5);
 }
 
 .main-rechts #upgrades-container button:hover {
 	color: rgba(0, 0, 0, 0.8);
+	box-shadow: 4px 4px 8px rgb(0, 0, 0, 0.8);
 }
 
 .main-rechts #upgrades-container button:active {

@@ -27,8 +27,15 @@ function buyUpgrade(x) {
   if (Blockcount > preis[x] - 1) {
     Blockcount -= preis[x];
     PerSec += SecAdd[x];
+    document.getElementById(`${x}`).style.cssText = 'box-shadow: 4px 4px 8px rgb(0, 55, 0, 0.7);';
+    setTimeout(function() {
+      document.getElementById(`${x}`).style.boxShadow = '';
+  }, 150);
   } else {
-    alert("Not enough blocks!");
+    document.getElementById(`${x}`).style.cssText = 'box-shadow: 4px 4px 8px rgb(155, 0, 0, 0.7);';
+    setTimeout(function() {
+      document.getElementById(`${x}`).style.boxShadow = '';
+  }, 250);
   }
 }
 
@@ -50,6 +57,7 @@ async function loadUpgrades() {
       const button = document.createElement('button');
       button.innerHTML = `<p> ${upgrade.name}: ${upgrade.clicksPerSecond} Clicks/sec</p><p> ${upgrade.cost}</p>`;
       button.setAttribute('onclick', `buyUpgrade(${index})`);
+      button.setAttribute('id', `${index}`);
       container.appendChild(button);
     });
   } catch (error) {

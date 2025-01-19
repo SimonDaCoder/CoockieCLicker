@@ -6,27 +6,27 @@
   },
   {
     "name": "Stone Pickaxe",
-    "cost": 100,
+    "cost": 300,
     "clicksPerSecond": 1
   },
   {
     "name": "Iron Pickaxe",
-    "cost": 1100,
+    "cost": 3300,
     "clicksPerSecond": 8
   },
   {
     "name": "Gold Pickaxe",
-    "cost": 12000,
+    "cost": 36000,
     "clicksPerSecond": 47
   },
   {
     "name": "Diamond Pickaxe",
-    "cost": 130000,
+    "cost": 390000,
     "clicksPerSecond": 260
   },
   {
     "name": "Netherite Pickaxe",
-    "cost": 1400000,
-    "clicksPerSecond": 14000000000
+    "cost": 4200000,
+    "clicksPerSecond": 1400
   }
 ]

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Haste",
+    "cost": 1000,
+    "multiplier": 0.1
+  },
+  {
+    "name": "Efficiency",
+    "cost": 3000,
+    "multiplier": 0.4
+  },
+  {
+    "name": "Fast-Mine Hack",
+    "cost": 72000,
+    "multiplier": 1.6
+  }
+]

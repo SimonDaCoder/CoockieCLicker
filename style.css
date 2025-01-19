@@ -93,6 +93,10 @@ body, html{
 	box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
+.main-rechts #upgrades-container {
+	margin: 1.2vh 0 0 0;
+}
+
 .main-rechts #upgrades-container button {
 	height: auto;
 	width: 92%;
@@ -125,4 +129,66 @@ body, html{
 
 .main-rechts #upgrades-container button p:last-of-type {
   font-weight: 600;
+}
+
+.main-rechts #extra-upgrades {
+	border-width: 0 0 0.4vh 0;
+	border-style:dotted solid dashed;
+	border-color: black;
+	padding: 0 0 0.6vh 0;
+}
+
+.main-rechts #extra-upgrades div {
+	display: flex;
+	flex-direction: row;
+	border: rgb(255, 255, 255) solid;
+	border-radius: 0.6vh;
+	background-color: rgba(255, 255, 255, 0.8);
+	margin: 0.6vh;
+	padding: 0;
+	height: auto;
+}
+
+.main-rechts #extra-upgrades div p {
+	background-color: rgba(255, 255, 255, 0);
+	padding: 0;
+  margin: 0.6vh 0.6vw 0 0;
+  font: 400 80% "VT323";
+  width: auto;
+  display: inline;
+}
+
+.ExtraUpgradeMultiplier {
+	font-size: 120% !important;
+  font-weight: bold !important;
+  text-align: right !important;
+	vertical-align: middle !important;
+	width: 100px !important;
+	flex: 1 !important;
+}
+
+.main-rechts #extra-upgrades div div {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+	flex-direction: column;
+	display: flex;
+	margin: 0 0 0 0.2vw;
+}
+
+.main-rechts #extra-upgrades div div p {
+	padding: 0;
+  margin: 0;
+  font: 400 80% "VT323";
+	width: auto;
+	display: inline;
+}
+
+.main-rechts #extra-upgrades button {
+	height: 5vh;
+	width: 5vh;
+	background-repeat: no-repeat;
+	background-size: 5vh;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
 }

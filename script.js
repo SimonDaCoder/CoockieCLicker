@@ -2,12 +2,16 @@ var Blockcount = 0
 let PerSec = 0
 let preis = []
 let SecAdd = []
+let MultiplierExtra = []
+let NameExtra = []
+let preisExtra = []
 
 document.addEventListener("DOMContentLoaded", function () {
   ClickOnBlock();
   PermaUpdater();
   PerSecondAdding();
   loadUpgrades();  // Lade die Upgrades
+  loadPlayerUpgrades(); // Lade die Player Upgrades
 });
 function PermaUpdater() {
   document.getElementById("MinecraftClickerScore").innerHTML = Math.floor(Blockcount) + " Blocks";
@@ -43,11 +47,9 @@ function buyUpgrade(x) {
 
 async function loadUpgrades() {
   try {
-    // Lade die JSON-Datei
     const response = await fetch('upgrades.json');
     const upgrades = await response.json();
 
-    // Container für die Buttons
     const container = document.getElementById('upgrades-container');
 
     upgrades.forEach((upgrade, index) => {
@@ -59,6 +61,55 @@ async function loadUpgrades() {
       button.setAttribute('onclick', `buyUpgrade(${index})`);
       button.setAttribute('id', `${index}`);
       container.appendChild(button);
+    });
+  } catch (error) {
+    console.error('Fehler beim Laden der Upgrades:', error);
+  }
+}
+
+async function loadPlayerUpgrades() {
+  try {
+    const response = await fetch('playerupgrades.json');
+    const upgrades = await response.json();
+
+    const container = document.getElementById('extra-upgrades');
+
+
+    upgrades.forEach((upgrade, index) => {
+      NameExtra.push(upgrade.name)
+      preisExtra.push(upgrade.cost);
+      MultiplierExtra.push(upgrade.multiplier);
+
+      const div = document.createElement('div');
+      div.className = `ExtraUpgradDiv_${index}`;
+
+      const div2 = document.createElement('div');
+      div2.className = `ExtraUpgradeDiv2_${index}`;
+
+      const button = document.createElement('button');
+      button.class = 'buttino123';
+      button.style.backgroundImage = `url('images/Haste.png')`;
+      button.setAttribute('onclick', `buyExtraUpgrade(${index})`);
+      button.setAttribute('id', `${index}`);
+
+      const p1 = document.createElement('p');
+      p1.textContent = upgrade.name;
+      p1.className = `ExtraUpgradeName`;
+      
+      const p2 = document.createElement('p');
+      p2.textContent = upgrade.cost;
+      p2.className = `ExtraUpgradeCost`;
+      
+      const p3 = document.createElement('p');
+      p3.textContent = upgrade.multiplier;
+      p3.className = `ExtraUpgradeMultiplier`;
+
+      div.appendChild(button);
+      div.appendChild(div2);
+      div2.appendChild(p1);
+      div2.appendChild(p2);
+      div.appendChild(p3);
+      container.appendChild(div);
     });
   } catch (error) {
     console.error('Fehler beim Laden der Upgrades:', error);

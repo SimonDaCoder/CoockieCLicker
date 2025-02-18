@@ -1,5 +1,6 @@
 var Blockcount = 0
 let PerSec = 0
+let multiplier = 1
 let preis = []
 let SecAdd = []
 let MultiplierExtra = []
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function PermaUpdater() {
   document.getElementById("MinecraftClickerScore").innerHTML = Math.floor(Blockcount) + " Blocks";
-  document.getElementById("MinecraftClicksPerSecond").innerHTML = Math.floor(PerSec * 10)/10 + " Blocks / Second";
+  document.getElementById("MinecraftClicksPerSecond").innerHTML = Math.floor(PerSec * multiplier * 10) / 10 + " Blocks / Second";
   setTimeout(PermaUpdater, 250)
 }
 function ClickOnBlock() {
@@ -24,23 +25,37 @@ function ClickOnBlock() {
   });
 }
 function PerSecondAdding() {
-  Blockcount = Blockcount + PerSec
+  Blockcount += PerSec * multiplier;
   setTimeout(PerSecondAdding, 1000);
 }
 function buyUpgrade(x) {
+  const button = document.getElementById(`${x}`);
   if (Blockcount > preis[x] - 1) {
     Blockcount -= preis[x];
     PerSec += SecAdd[x];
-    document.getElementById(`${x}`).style.cssText = 'box-shadow: 4px 4px 8px rgb(0, 55, 0, 0.7);';
-    setTimeout(function() {
+    button.style.cssText = 'box-shadow: 4px 4px 8px rgb(0, 55, 0, 0.7);';
+    setTimeout(function () {
       document.getElementById(`${x}`).style.boxShadow = '';
-  }, 150);
+    }, 150);
   } else {
-    document.getElementById(`${x}`).style.cssText = 'box-shadow: 4px 4px 8px rgb(155, 0, 0, 0.7);';
-    setTimeout(function() {
+    button.style.cssText = 'box-shadow: 4px 4px 8px rgb(155, 0, 0, 0.7);';
+    setTimeout(function () {
       document.getElementById(`${x}`).style.boxShadow = '';
-  }, 250);
+    }, 250);
   }
+}
+function buyExtraUpgrade(id) {
+  const button = document.getElementById(`PU_${id}`)
+  if (Blockcount > preisExtra[id] - 1) {
+    Blockcount -= preisExtra[id];
+    multiplier += MultiplierExtra[id];
+    button.style.cssText = 'box-shadow: 4px 4px 8px rgb(0, 55, 0, 0.7);';
+  } else {
+    button.style.cssText = 'box-shadow: 4px 4px 8px rgb(155, 0, 0, 0.7);';
+  }
+  setTimeout(function () {
+    button.style.cssText = '';
+  }, 250);
 }
 
 
@@ -82,24 +97,23 @@ async function loadPlayerUpgrades() {
 
       const div = document.createElement('div');
       div.className = `ExtraUpgradDiv_${index}`;
+      div.setAttribute('onclick', `buyExtraUpgrade(${index})`);
 
       const div2 = document.createElement('div');
       div2.className = `ExtraUpgradeDiv2_${index}`;
 
       const button = document.createElement('button');
-      button.class = 'buttino123';
       button.style.backgroundImage = `url('images/Haste.png')`;
-      button.setAttribute('onclick', `buyExtraUpgrade(${index})`);
-      button.setAttribute('id', `${index}`);
+      button.setAttribute('id', `PU_${index}`);
 
       const p1 = document.createElement('p');
       p1.textContent = upgrade.name;
       p1.className = `ExtraUpgradeName`;
-      
+
       const p2 = document.createElement('p');
       p2.textContent = upgrade.cost;
       p2.className = `ExtraUpgradeCost`;
-      
+
       const p3 = document.createElement('p');
       p3.textContent = upgrade.multiplier;
       p3.className = `ExtraUpgradeMultiplier`;

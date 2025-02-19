@@ -20,6 +20,15 @@ body, html{
 	height: 3vh;
 	background-color: blue;
 	flex-shrink: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header img {
+	width: 3vh;
+	height: 3vh;
 }
 
 .main{
